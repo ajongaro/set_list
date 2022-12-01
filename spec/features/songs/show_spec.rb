@@ -28,6 +28,7 @@ RSpec.describe 'the songs show page', type: :feature do
         expect(page).to have_content(artist.name)
       end
     end
+
     # When I visit a Song show page
     # Then I see the song's title, length, and play count
     describe 'when I visit a songs show page' do
@@ -37,7 +38,7 @@ RSpec.describe 'the songs show page', type: :feature do
         song_2 = artist.songs.create!(title: "Call Me Maybe", length: 203, play_count: 23423)
 
         visit "/songs/#{song.id}"
-        save_and_open_page
+        # save_and_open_page
 
         expect(page).to have_content(song.title)
         expect(page).to have_content(song.length)
@@ -73,8 +74,6 @@ RSpec.describe 'the songs show page', type: :feature do
     # And I see the Artist's total song count
     describe 'When I visit an artists show page' do
       it 'shows artists name, average song length, total song count'
-
-      end
     end
   end
 end
