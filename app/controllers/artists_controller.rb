@@ -6,6 +6,16 @@ class ArtistsController < ApplicationController
   def new
   end
 
+  def edit
+    @artist = Artist.find(params[:id])
+  end
+
+  def update
+    artist = Artist.find(params[:id])
+    artist.update(artist_params)
+    redirect_to "/artists/"
+  end
+
   def create
     artist = Artist.create(artist_params)
     redirect_to "/artists/"
